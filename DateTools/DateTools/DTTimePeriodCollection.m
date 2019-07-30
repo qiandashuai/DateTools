@@ -333,10 +333,10 @@
     __block NSDate *startDate = [NSDate distantFuture];
     __block NSDate *endDate = [NSDate distantPast];
     [periods enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([((DTTimePeriod *) obj).StartDate isEarlierThan:startDate]) {
+        if ([((DTTimePeriod *) obj).StartDate mt_isEarlierThan:startDate]) {
             startDate = ((DTTimePeriod *) obj).StartDate;
         }
-        if ([((DTTimePeriod *) obj).EndDate isLaterThan:endDate]) {
+        if ([((DTTimePeriod *) obj).EndDate mt_isLaterThan:endDate]) {
             endDate = ((DTTimePeriod *) obj).EndDate;
         }
     }];

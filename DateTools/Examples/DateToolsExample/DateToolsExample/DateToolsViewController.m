@@ -57,7 +57,7 @@
 
     // <<<<<<<<<<<<<<<<<<<<<<<
     self.selectedDate = [NSDate dateWithTimeIntervalSinceNow:-24*60*60*6+100];
-    NSString *week = [NSDate weekTimeAgoSinceDate:self.selectedDate];
+    NSString *week = [NSDate mt_weekTimeAgoSinceDate:self.selectedDate];
     NSLog(@"Week:%@", week);
     // >>>>>>>>>>>>>>>>>>>>>>>
 
@@ -104,13 +104,13 @@
     self.TimeAgoLabel.text = [self.formatter stringFromDate:self.selectedDate];
     
     //Set date component labels
-    self.SecondsLabel.text = [NSString stringWithFormat:@"%.0f", self.selectedDate.secondsAgo];
-    self.MinutesLabel.text = [NSString stringWithFormat:@"%.0f", self.selectedDate.minutesAgo];
-    self.HoursLabel.text = [NSString stringWithFormat:@"%.0f", self.selectedDate.hoursAgo];
-    self.DaysLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.daysAgo];
-    self.WeeksLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.weeksAgo];
-    self.MonthsLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.monthsAgo];
-    self.YearsLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.yearsAgo];
+    self.SecondsLabel.text = [NSString stringWithFormat:@"%.0f", self.selectedDate.mt_secondsAgo];
+    self.MinutesLabel.text = [NSString stringWithFormat:@"%.0f", self.selectedDate.mt_minutesAgo];
+    self.HoursLabel.text = [NSString stringWithFormat:@"%.0f", self.selectedDate.mt_hoursAgo];
+    self.DaysLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.mt_daysAgo];
+    self.WeeksLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.mt_weeksAgo];
+    self.MonthsLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.mt_monthsAgo];
+    self.YearsLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedDate.mt_yearsAgo];
 }
 
 - (IBAction)sliderValueDidChange:(UISlider *)sender {

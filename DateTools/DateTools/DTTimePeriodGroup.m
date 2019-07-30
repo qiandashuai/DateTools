@@ -55,7 +55,7 @@
  */
 -(double)durationInYears {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate yearsEarlierThan:self.EndDate];
+        return [self.StartDate mt_yearsEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -68,7 +68,7 @@
  */
 -(double)durationInWeeks {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate weeksEarlierThan:self.EndDate];
+        return [self.StartDate mt_weeksEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -81,7 +81,7 @@
  */
 -(double)durationInDays {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate daysEarlierThan:self.EndDate];
+        return [self.StartDate mt_daysEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -94,7 +94,7 @@
  */
 -(double)durationInHours {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate hoursEarlierThan:self.EndDate];
+        return [self.StartDate mt_hoursEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -107,7 +107,7 @@
  */
 -(double)durationInMinutes {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate minutesEarlierThan:self.EndDate];
+        return [self.StartDate mt_minutesEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -120,7 +120,7 @@
  */
 -(double)durationInSeconds {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate secondsEarlierThan:self.EndDate];
+        return [self.StartDate mt_secondsEarlierThan:self.EndDate];
     }
     
     return 0;

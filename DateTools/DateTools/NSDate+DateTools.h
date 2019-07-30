@@ -31,157 +31,157 @@ NSLocalizedStringFromTableInBundle(key, @"DateTools", [NSBundle bundleWithPath:[
 @interface NSDate (DateTools)
 
 #pragma mark - Time Ago
-+ (NSString*)timeAgoSinceDate:(NSDate*)date;
-+ (NSString*)shortTimeAgoSinceDate:(NSDate*)date;
-+ (NSString *)weekTimeAgoSinceDate:(NSDate *)date;
++ (NSString*)mt_timeAgoSinceDate:(NSDate*)date;
++ (NSString*)mt_shortTimeAgoSinceDate:(NSDate*)date;
++ (NSString *)mt_weekTimeAgoSinceDate:(NSDate *)date;
 
-- (NSString*)timeAgoSinceNow;
-- (NSString *)shortTimeAgoSinceNow;
-- (NSString *)weekTimeAgoSinceNow;
+- (NSString*)mt_timeAgoSinceNow;
+- (NSString *)mt_shortTimeAgoSinceNow;
+- (NSString *)mt_weekTimeAgoSinceNow;
 
-- (NSString *)timeAgoSinceDate:(NSDate *)date;
-- (NSString *)timeAgoSinceDate:(NSDate *)date numericDates:(BOOL)useNumericDates;
-- (NSString *)timeAgoSinceDate:(NSDate *)date numericDates:(BOOL)useNumericDates numericTimes:(BOOL)useNumericTimes;
+- (NSString *)mt_timeAgoSinceDate:(NSDate *)date;
+- (NSString *)mt_timeAgoSinceDate:(NSDate *)date numericDates:(BOOL)useNumericDates;
+- (NSString *)mt_timeAgoSinceDate:(NSDate *)date numericDates:(BOOL)useNumericDates numericTimes:(BOOL)useNumericTimes;
 
 
-- (NSString *)shortTimeAgoSinceDate:(NSDate *)date;
-- (NSString *)weekTimeAgoSinceDate:(NSDate *)date;
+- (NSString *)mt_shortTimeAgoSinceDate:(NSDate *)date;
+- (NSString *)mt_weekTimeAgoSinceDate:(NSDate *)date;
 
 
 #pragma mark - Date Components Without Calendar
-- (NSInteger)era;
-- (NSInteger)year;
-- (NSInteger)month;
-- (NSInteger)day;
-- (NSInteger)hour;
-- (NSInteger)minute;
-- (NSInteger)second;
-- (NSInteger)weekday;
-- (NSInteger)weekdayOrdinal;
-- (NSInteger)quarter;
-- (NSInteger)weekOfMonth;
-- (NSInteger)weekOfYear;
-- (NSInteger)yearForWeekOfYear;
-- (NSInteger)daysInMonth;
-- (NSInteger)dayOfYear;
--(NSInteger)daysInYear;
--(BOOL)isInLeapYear;
-- (BOOL)isToday;
-- (BOOL)isTomorrow;
--(BOOL)isYesterday;
-- (BOOL)isWeekend;
--(BOOL)isSameDay:(NSDate *)date;
-+ (BOOL)isSameDay:(NSDate *)date asDate:(NSDate *)compareDate;
+- (NSInteger)mt_era;
+- (NSInteger)mt_year;
+- (NSInteger)mt_month;
+- (NSInteger)mt_day;
+- (NSInteger)mt_hour;
+- (NSInteger)mt_minute;
+- (NSInteger)mt_second;
+- (NSInteger)mt_weekday;
+- (NSInteger)mt_weekdayOrdinal;
+- (NSInteger)mt_quarter;
+- (NSInteger)mt_weekOfMonth;
+- (NSInteger)mt_weekOfYear;
+- (NSInteger)mt_yearForWeekOfYear;
+- (NSInteger)mt_daysInMonth;
+- (NSInteger)mt_dayOfYear;
+-(NSInteger)mt_daysInYear;
+-(BOOL)mt_isInLeapYear;
+- (BOOL)mt_isToday;
+- (BOOL)mt_isTomorrow;
+-(BOOL)mt_isYesterday;
+- (BOOL)mt_isWeekend;
+-(BOOL)mt_isSameDay:(NSDate *)date;
++ (BOOL)mt_isSameDay:(NSDate *)date asDate:(NSDate *)compareDate;
 
 #pragma mark - Date Components With Calendar
 
 
-- (NSInteger)eraWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)yearWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)monthWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)dayWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)hourWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)minuteWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)secondWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)weekdayWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)weekdayOrdinalWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)quarterWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)weekOfMonthWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)weekOfYearWithCalendar:(NSCalendar *)calendar;
-- (NSInteger)yearForWeekOfYearWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_eraWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_yearWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_monthWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_dayWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_hourWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_minuteWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_secondWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_weekdayWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_weekdayOrdinalWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_quarterWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_weekOfMonthWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_weekOfYearWithCalendar:(NSCalendar *)calendar;
+- (NSInteger)mt_yearForWeekOfYearWithCalendar:(NSCalendar *)calendar;
 
 
 #pragma mark - Date Creating
-+ (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-+ (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
-+ (NSDate *)dateWithString:(NSString *)dateString formatString:(NSString *)formatString;
-+ (NSDate *)dateWithString:(NSString *)dateString formatString:(NSString *)formatString timeZone:(NSTimeZone *)timeZone;
++ (NSDate *)mt_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
++ (NSDate *)mt_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
++ (NSDate *)mt_dateWithString:(NSString *)dateString formatString:(NSString *)formatString;
++ (NSDate *)mt_dateWithString:(NSString *)dateString formatString:(NSString *)formatString timeZone:(NSTimeZone *)timeZone;
 
 
 #pragma mark - Date Editing
 #pragma mark Date By Adding
-- (NSDate *)dateByAddingYears:(NSInteger)years;
-- (NSDate *)dateByAddingMonths:(NSInteger)months;
-- (NSDate *)dateByAddingWeeks:(NSInteger)weeks;
-- (NSDate *)dateByAddingDays:(NSInteger)days;
-- (NSDate *)dateByAddingHours:(NSInteger)hours;
-- (NSDate *)dateByAddingMinutes:(NSInteger)minutes;
-- (NSDate *)dateByAddingSeconds:(NSInteger)seconds;
+- (NSDate *)mt_dateByAddingYears:(NSInteger)years;
+- (NSDate *)mt_dateByAddingMonths:(NSInteger)months;
+- (NSDate *)mt_dateByAddingWeeks:(NSInteger)weeks;
+- (NSDate *)mt_dateByAddingDays:(NSInteger)days;
+- (NSDate *)mt_dateByAddingHours:(NSInteger)hours;
+- (NSDate *)mt_dateByAddingMinutes:(NSInteger)minutes;
+- (NSDate *)mt_dateByAddingSeconds:(NSInteger)seconds;
 #pragma mark Date By Subtracting
-- (NSDate *)dateBySubtractingYears:(NSInteger)years;
-- (NSDate *)dateBySubtractingMonths:(NSInteger)months;
-- (NSDate *)dateBySubtractingWeeks:(NSInteger)weeks;
-- (NSDate *)dateBySubtractingDays:(NSInteger)days;
-- (NSDate *)dateBySubtractingHours:(NSInteger)hours;
-- (NSDate *)dateBySubtractingMinutes:(NSInteger)minutes;
-- (NSDate *)dateBySubtractingSeconds:(NSInteger)seconds;
+- (NSDate *)mt_dateBySubtractingYears:(NSInteger)years;
+- (NSDate *)mt_dateBySubtractingMonths:(NSInteger)months;
+- (NSDate *)mt_dateBySubtractingWeeks:(NSInteger)weeks;
+- (NSDate *)mt_dateBySubtractingDays:(NSInteger)days;
+- (NSDate *)mt_dateBySubtractingHours:(NSInteger)hours;
+- (NSDate *)mt_dateBySubtractingMinutes:(NSInteger)minutes;
+- (NSDate *)mt_dateBySubtractingSeconds:(NSInteger)seconds;
 
 #pragma mark - Date Comparison
 #pragma mark Time From
--(NSInteger)yearsFrom:(NSDate *)date;
--(NSInteger)monthsFrom:(NSDate *)date;
--(NSInteger)weeksFrom:(NSDate *)date;
--(NSInteger)daysFrom:(NSDate *)date;
--(double)hoursFrom:(NSDate *)date;
--(double)minutesFrom:(NSDate *)date;
--(double)secondsFrom:(NSDate *)date;
+-(NSInteger)mt_yearsFrom:(NSDate *)date;
+-(NSInteger)mt_monthsFrom:(NSDate *)date;
+-(NSInteger)mt_weeksFrom:(NSDate *)date;
+-(NSInteger)mt_daysFrom:(NSDate *)date;
+-(double)mt_hoursFrom:(NSDate *)date;
+-(double)mt_minutesFrom:(NSDate *)date;
+-(double)mt_secondsFrom:(NSDate *)date;
 #pragma mark Time From With Calendar
--(NSInteger)yearsFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
--(NSInteger)monthsFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
--(NSInteger)weeksFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
--(NSInteger)daysFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
+-(NSInteger)mt_yearsFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
+-(NSInteger)mt_monthsFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
+-(NSInteger)mt_weeksFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
+-(NSInteger)mt_daysFrom:(NSDate *)date calendar:(NSCalendar *)calendar;
 
 #pragma mark Time Until
--(NSInteger)yearsUntil;
--(NSInteger)monthsUntil;
--(NSInteger)weeksUntil;
--(NSInteger)daysUntil;
--(double)hoursUntil;
--(double)minutesUntil;
--(double)secondsUntil;
+-(NSInteger)mt_yearsUntil;
+-(NSInteger)mt_monthsUntil;
+-(NSInteger)mt_weeksUntil;
+-(NSInteger)mt_daysUntil;
+-(double)mt_hoursUntil;
+-(double)mt_minutesUntil;
+-(double)mt_secondsUntil;
 #pragma mark Time Ago
--(NSInteger)yearsAgo;
--(NSInteger)monthsAgo;
--(NSInteger)weeksAgo;
--(NSInteger)daysAgo;
--(double)hoursAgo;
--(double)minutesAgo;
--(double)secondsAgo;
+-(NSInteger)mt_yearsAgo;
+-(NSInteger)mt_monthsAgo;
+-(NSInteger)mt_weeksAgo;
+-(NSInteger)mt_daysAgo;
+-(double)mt_hoursAgo;
+-(double)mt_minutesAgo;
+-(double)mt_secondsAgo;
 #pragma mark Earlier Than
--(NSInteger)yearsEarlierThan:(NSDate *)date;
--(NSInteger)monthsEarlierThan:(NSDate *)date;
--(NSInteger)weeksEarlierThan:(NSDate *)date;
--(NSInteger)daysEarlierThan:(NSDate *)date;
--(double)hoursEarlierThan:(NSDate *)date;
--(double)minutesEarlierThan:(NSDate *)date;
--(double)secondsEarlierThan:(NSDate *)date;
+-(NSInteger)mt_yearsEarlierThan:(NSDate *)date;
+-(NSInteger)mt_monthsEarlierThan:(NSDate *)date;
+-(NSInteger)mt_weeksEarlierThan:(NSDate *)date;
+-(NSInteger)mt_daysEarlierThan:(NSDate *)date;
+-(double)mt_hoursEarlierThan:(NSDate *)date;
+-(double)mt_minutesEarlierThan:(NSDate *)date;
+-(double)mt_secondsEarlierThan:(NSDate *)date;
 #pragma mark Later Than
--(NSInteger)yearsLaterThan:(NSDate *)date;
--(NSInteger)monthsLaterThan:(NSDate *)date;
--(NSInteger)weeksLaterThan:(NSDate *)date;
--(NSInteger)daysLaterThan:(NSDate *)date;
--(double)hoursLaterThan:(NSDate *)date;
--(double)minutesLaterThan:(NSDate *)date;
--(double)secondsLaterThan:(NSDate *)date;
+-(NSInteger)mt_yearsLaterThan:(NSDate *)date;
+-(NSInteger)mt_monthsLaterThan:(NSDate *)date;
+-(NSInteger)mt_weeksLaterThan:(NSDate *)date;
+-(NSInteger)mt_daysLaterThan:(NSDate *)date;
+-(double)mt_hoursLaterThan:(NSDate *)date;
+-(double)mt_minutesLaterThan:(NSDate *)date;
+-(double)mt_secondsLaterThan:(NSDate *)date;
 #pragma mark Comparators
--(BOOL)isEarlierThan:(NSDate *)date;
--(BOOL)isLaterThan:(NSDate *)date;
--(BOOL)isEarlierThanOrEqualTo:(NSDate *)date;
--(BOOL)isLaterThanOrEqualTo:(NSDate *)date;
+-(BOOL)mt_isEarlierThan:(NSDate *)date;
+-(BOOL)mt_isLaterThan:(NSDate *)date;
+-(BOOL)mt_isEarlierThanOrEqualTo:(NSDate *)date;
+-(BOOL)mt_isLaterThanOrEqualTo:(NSDate *)date;
 
 #pragma mark - Formatted Dates
 #pragma mark Formatted With Style
--(NSString *)formattedDateWithStyle:(NSDateFormatterStyle)style;
--(NSString *)formattedDateWithStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
--(NSString *)formattedDateWithStyle:(NSDateFormatterStyle)style locale:(NSLocale *)locale;
--(NSString *)formattedDateWithStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
+-(NSString *)mt_formattedDateWithStyle:(NSDateFormatterStyle)style;
+-(NSString *)mt_formattedDateWithStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
+-(NSString *)mt_formattedDateWithStyle:(NSDateFormatterStyle)style locale:(NSLocale *)locale;
+-(NSString *)mt_formattedDateWithStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
 #pragma mark Formatted With Format
--(NSString *)formattedDateWithFormat:(NSString *)format;
--(NSString *)formattedDateWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone;
--(NSString *)formattedDateWithFormat:(NSString *)format locale:(NSLocale *)locale;
--(NSString *)formattedDateWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
+-(NSString *)mt_formattedDateWithFormat:(NSString *)format;
+-(NSString *)mt_formattedDateWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone;
+-(NSString *)mt_formattedDateWithFormat:(NSString *)format locale:(NSLocale *)locale;
+-(NSString *)mt_formattedDateWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
 
 #pragma mark - Helpers
-+(NSString *)defaultCalendarIdentifier;
-+ (void)setDefaultCalendarIdentifier:(NSString *)identifier;
++(NSString *)mt_defaultCalendarIdentifier;
++ (void)mt_setDefaultCalendarIdentifier:(NSString *)identifier;
 @end

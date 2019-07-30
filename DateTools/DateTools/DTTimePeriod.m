@@ -137,25 +137,25 @@
 +(NSDate *)dateWithAddedTime:(DTTimePeriodSize)size amount:(NSInteger)amount baseDate:(NSDate *)date{
     switch (size) {
         case DTTimePeriodSizeSecond:
-            return [date dateByAddingSeconds:amount];
+            return [date mt_dateByAddingSeconds:amount];
             break;
         case DTTimePeriodSizeMinute:
-            return [date dateByAddingMinutes:amount];
+            return [date mt_dateByAddingMinutes:amount];
             break;
         case DTTimePeriodSizeHour:
-            return [date dateByAddingHours:amount];
+            return [date mt_dateByAddingHours:amount];
             break;
         case DTTimePeriodSizeDay:
-            return [date dateByAddingDays:amount];
+            return [date mt_dateByAddingDays:amount];
             break;
         case DTTimePeriodSizeWeek:
-            return [date dateByAddingWeeks:amount];
+            return [date mt_dateByAddingWeeks:amount];
             break;
         case DTTimePeriodSizeMonth:
-            return [date dateByAddingMonths:amount];
+            return [date mt_dateByAddingMonths:amount];
             break;
         case DTTimePeriodSizeYear:
-            return [date dateByAddingYears:amount];
+            return [date mt_dateByAddingYears:amount];
             break;
         default:
             break;
@@ -177,25 +177,25 @@
 +(NSDate *)dateWithSubtractedTime:(DTTimePeriodSize)size amount:(NSInteger)amount baseDate:(NSDate *)date{
     switch (size) {
         case DTTimePeriodSizeSecond:
-            return [date dateBySubtractingSeconds:amount];
+            return [date mt_dateBySubtractingSeconds:amount];
             break;
         case DTTimePeriodSizeMinute:
-            return [date dateBySubtractingMinutes:amount];
+            return [date mt_dateBySubtractingMinutes:amount];
             break;
         case DTTimePeriodSizeHour:
-            return [date dateBySubtractingHours:amount];
+            return [date mt_dateBySubtractingHours:amount];
             break;
         case DTTimePeriodSizeDay:
-            return [date dateBySubtractingDays:amount];
+            return [date mt_dateBySubtractingDays:amount];
             break;
         case DTTimePeriodSizeWeek:
-            return [date dateBySubtractingWeeks:amount];
+            return [date mt_dateBySubtractingWeeks:amount];
             break;
         case DTTimePeriodSizeMonth:
-            return [date dateBySubtractingMonths:amount];
+            return [date mt_dateBySubtractingMonths:amount];
             break;
         case DTTimePeriodSizeYear:
-            return [date dateBySubtractingYears:amount];
+            return [date mt_dateBySubtractingYears:amount];
             break;
         default:
             break;
@@ -248,7 +248,7 @@
  */
 -(double)durationInYears {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate yearsEarlierThan:self.EndDate];
+        return [self.StartDate mt_yearsEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -261,7 +261,7 @@
  */
 -(double)durationInWeeks {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate weeksEarlierThan:self.EndDate];
+        return [self.StartDate mt_weeksEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -274,7 +274,7 @@
  */
 -(double)durationInDays {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate daysEarlierThan:self.EndDate];
+        return [self.StartDate mt_daysEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -287,7 +287,7 @@
  */
 -(double)durationInHours {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate hoursEarlierThan:self.EndDate];
+        return [self.StartDate mt_hoursEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -300,7 +300,7 @@
  */
 -(double)durationInMinutes {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate minutesEarlierThan:self.EndDate];
+        return [self.StartDate mt_minutesEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -313,7 +313,7 @@
  */
 -(double)durationInSeconds {
     if (self.StartDate && self.EndDate) {
-        return [self.StartDate secondsEarlierThan:self.EndDate];
+        return [self.StartDate mt_secondsEarlierThan:self.EndDate];
     }
     
     return 0;
@@ -344,7 +344,7 @@
  *  @return BOOL
  */
 -(BOOL)isInside:(DTTimePeriod *)period{
-    if ([period.StartDate isEarlierThanOrEqualTo:self.StartDate] && [period.EndDate isLaterThanOrEqualTo:self.EndDate]) {
+    if ([period.StartDate mt_isEarlierThanOrEqualTo:self.StartDate] && [period.EndDate mt_isLaterThanOrEqualTo:self.EndDate]) {
         return YES;
     }
     return NO;
@@ -359,7 +359,7 @@
  *  @return BOOL
  */
 -(BOOL)contains:(DTTimePeriod *)period{
-    if ([self.StartDate isEarlierThanOrEqualTo:period.StartDate] && [self.EndDate isLaterThanOrEqualTo:period.EndDate]) {
+    if ([self.StartDate mt_isEarlierThanOrEqualTo:period.StartDate] && [self.EndDate mt_isLaterThanOrEqualTo:period.EndDate]) {
         return YES;
     }
     return NO;
@@ -376,15 +376,15 @@
  */
 -(BOOL)overlapsWith:(DTTimePeriod *)period{
     //Outside -> Inside
-    if ([period.StartDate isEarlierThan:self.StartDate] && [period.EndDate isLaterThan:self.StartDate]) {
+    if ([period.StartDate mt_isEarlierThan:self.StartDate] && [period.EndDate mt_isLaterThan:self.StartDate]) {
         return YES;
     }
     //Enclosing
-    else if ([period.StartDate isLaterThanOrEqualTo:self.StartDate] && [period.EndDate isEarlierThanOrEqualTo:self.EndDate]){
+    else if ([period.StartDate mt_isLaterThanOrEqualTo:self.StartDate] && [period.EndDate mt_isEarlierThanOrEqualTo:self.EndDate]){
         return YES;
     }
     //Inside -> Out
-    else if([period.StartDate isEarlierThan:self.EndDate] && [period.EndDate isLaterThan:self.EndDate]){
+    else if([period.StartDate mt_isEarlierThan:self.EndDate] && [period.EndDate mt_isLaterThan:self.EndDate]){
         return YES;
     }
     return NO;
@@ -401,15 +401,15 @@
  */
 -(BOOL)intersects:(DTTimePeriod *)period{
     //Outside -> Inside
-    if ([period.StartDate isEarlierThan:self.StartDate] && [period.EndDate isLaterThanOrEqualTo:self.StartDate]) {
+    if ([period.StartDate mt_isEarlierThan:self.StartDate] && [period.EndDate mt_isLaterThanOrEqualTo:self.StartDate]) {
         return YES;
     }
     //Enclosing
-    else if ([period.StartDate isLaterThanOrEqualTo:self.StartDate] && [period.EndDate isEarlierThanOrEqualTo:self.EndDate]){
+    else if ([period.StartDate mt_isLaterThanOrEqualTo:self.StartDate] && [period.EndDate mt_isEarlierThanOrEqualTo:self.EndDate]){
         return YES;
     }
     //Inside -> Out
-    else if([period.StartDate isEarlierThanOrEqualTo:self.EndDate] && [period.EndDate isLaterThan:self.EndDate]){
+    else if([period.StartDate mt_isEarlierThanOrEqualTo:self.EndDate] && [period.EndDate mt_isLaterThan:self.EndDate]){
         return YES;
     }
     return NO;
@@ -427,46 +427,46 @@
     //Make sure that all start and end points exist for comparison
     if (self.StartDate && self.EndDate && period.StartDate && period.EndDate) {
         //Make sure time periods are of positive durations
-        if ([self.StartDate isEarlierThan:self.EndDate] && [period.StartDate isEarlierThan:period.EndDate]) {
+        if ([self.StartDate mt_isEarlierThan:self.EndDate] && [period.StartDate mt_isEarlierThan:period.EndDate]) {
             
             //Make comparisons
-            if ([period.EndDate isEarlierThan:self.StartDate]) {
+            if ([period.EndDate mt_isEarlierThan:self.StartDate]) {
                 return DTTimePeriodRelationAfter;
             }
             else if ([period.EndDate isEqualToDate:self.StartDate]){
                 return DTTimePeriodRelationStartTouching;
             }
-            else if ([period.StartDate isEarlierThan:self.StartDate] && [period.EndDate isEarlierThan:self.EndDate]){
+            else if ([period.StartDate mt_isEarlierThan:self.StartDate] && [period.EndDate mt_isEarlierThan:self.EndDate]){
                 return DTTimePeriodRelationStartInside;
             }
-            else if ([period.StartDate isEqualToDate:self.StartDate] && [period.EndDate isLaterThan:self.EndDate]){
+            else if ([period.StartDate isEqualToDate:self.StartDate] && [period.EndDate mt_isLaterThan:self.EndDate]){
                 return DTTimePeriodRelationInsideStartTouching;
             }
-            else if ([period.StartDate isEqualToDate:self.StartDate] && [period.EndDate isEarlierThan:self.EndDate]){
+            else if ([period.StartDate isEqualToDate:self.StartDate] && [period.EndDate mt_isEarlierThan:self.EndDate]){
                 return DTTimePeriodRelationEnclosingStartTouching;
             }
-            else if ([period.StartDate isLaterThan:self.StartDate] && [period.EndDate isEarlierThan:self.EndDate]){
+            else if ([period.StartDate mt_isLaterThan:self.StartDate] && [period.EndDate mt_isEarlierThan:self.EndDate]){
                 return DTTimePeriodRelationEnclosing;
             }
-            else if ([period.StartDate isLaterThan:self.StartDate] && [period.EndDate isEqualToDate:self.EndDate]){
+            else if ([period.StartDate mt_isLaterThan:self.StartDate] && [period.EndDate isEqualToDate:self.EndDate]){
                 return DTTimePeriodRelationEnclosingEndTouching;
             }
             else if ([period.StartDate isEqualToDate:self.StartDate] && [period.EndDate isEqualToDate:self.EndDate]){
                 return DTTimePeriodRelationExactMatch;
             }
-            else if ([period.StartDate isEarlierThan:self.StartDate] && [period.EndDate isLaterThan:self.EndDate]){
+            else if ([period.StartDate mt_isEarlierThan:self.StartDate] && [period.EndDate mt_isLaterThan:self.EndDate]){
                 return DTTimePeriodRelationInside;
             }
-            else if ([period.StartDate isEarlierThan:self.StartDate] && [period.EndDate isEqualToDate:self.EndDate]){
+            else if ([period.StartDate mt_isEarlierThan:self.StartDate] && [period.EndDate isEqualToDate:self.EndDate]){
                 return DTTimePeriodRelationInsideEndTouching;
             }
-            else if ([period.StartDate isEarlierThan:self.EndDate] && [period.EndDate isLaterThan:self.EndDate]){
+            else if ([period.StartDate mt_isEarlierThan:self.EndDate] && [period.EndDate mt_isLaterThan:self.EndDate]){
                 return DTTimePeriodRelationEndInside;
             }
-            else if ([period.StartDate isEqualToDate:self.EndDate] && [period.EndDate isLaterThan:self.EndDate]){
+            else if ([period.StartDate isEqualToDate:self.EndDate] && [period.EndDate mt_isLaterThan:self.EndDate]){
                 return DTTimePeriodRelationEndTouching;
             }
-            else if ([period.StartDate isLaterThan:self.EndDate]){
+            else if ([period.StartDate mt_isLaterThan:self.EndDate]){
                 return DTTimePeriodRelationBefore;
             }
         }
@@ -484,10 +484,10 @@
  *  @return <#return value description#>
  */
 -(NSTimeInterval)gapBetween:(DTTimePeriod *)period{
-    if ([self.EndDate isEarlierThan:period.StartDate]) {
+    if ([self.EndDate mt_isEarlierThan:period.StartDate]) {
         return ABS([self.EndDate timeIntervalSinceDate:period.StartDate]);
     }
-    else if ([period.EndDate isEarlierThan:self.StartDate]){
+    else if ([period.EndDate mt_isEarlierThan:self.StartDate]){
         return ABS([period.EndDate timeIntervalSinceDate:self.StartDate]);
     }
     
@@ -505,7 +505,7 @@
  */
 -(BOOL)containsDate:(NSDate *)date interval:(DTTimePeriodInterval)interval{
     if (interval == DTTimePeriodIntervalOpen) {
-        if ([self.StartDate isEarlierThan:date] && [self.EndDate isLaterThan:date]) {
+        if ([self.StartDate mt_isEarlierThan:date] && [self.EndDate mt_isLaterThan:date]) {
             return YES;
         }
         else {
@@ -513,7 +513,7 @@
         }
     }
     else if (interval == DTTimePeriodIntervalClosed){
-        if ([self.StartDate isEarlierThanOrEqualTo:date] && [self.EndDate isLaterThanOrEqualTo:date]) {
+        if ([self.StartDate mt_isEarlierThanOrEqualTo:date] && [self.EndDate mt_isLaterThanOrEqualTo:date]) {
             return YES;
         }
         else {
